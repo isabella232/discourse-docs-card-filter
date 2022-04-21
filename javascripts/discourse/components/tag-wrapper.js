@@ -14,7 +14,6 @@ export default Component.extend({
 
   @action
   selectTag() {
-    console.log(this)
     this.get("router").transitionTo("docs.index", {
       queryParams: {
         tags: this.tag.id,
@@ -55,7 +54,7 @@ export default Component.extend({
 
   @discourseComputed("tag.id")
   tagTitle(tagTitle) {
-    return tagTitle;
+    return tagTitle.replaceAll("-", " ");
   },
 
   @discourseComputed("tag")
